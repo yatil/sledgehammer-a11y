@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skip Links</title>
+  </head>
+
+  <body>
+    <main>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate porro dicta architecto praesentium reprehenderit magnam delectus amet fugiat, assumenda nam eos corporis nulla magni velit tempore iure quidem, quod dolore!
+    </main>
+    <footer id="secondary">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione hic, aperiam rem minima voluptatem porro aliquid ut aspernatur magnam beatae harum earum vel eum, natus eos sed odit reiciendis? Rerum.
+    </footer>
+    <script>
+      function addSkipLink(targetSelector, skipLinkName = "Skip to Content") {
+
+        if (!document.querySelector("[data-sledge-hammer-a11y='skipLinks']")) {
+          document.querySelector("head").insertAdjacentHTML("beforeend", "<style data-sledge-hammer-a11y='skipLinks'>.skiplink { display: block; color: #fff; background-color: #000; border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }.skiplink:active,.skiplink:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; white-space: inherit; width: auto; }</style>");
+        }
+
+        let linkTarget = document.querySelector(targetSelector);
+        let id = linkTarget.getAttribute("id");
+        if (!id) {
+          id = crypto.randomUUID();
+          linkTarget.setAttribute("id", id);
+        }
+        linkTarget.setAttribute("tabindex", "-1");
+
+        let skipLink = document.createElement("a");
+        skipLink.setAttribute("href", "#" + id);
+        skipLink.classList.add("skiplink");
+        skipLink.innerText = skipLinkName;
+        document.querySelector("body").insertBefore(skipLink, document.querySelector("body>:not(.skiplink)"));
+      }
+      addSkipLink("main");
+      addSkipLink("footer", "To Secondary Content");
+    </script>
+  </body>
+
+</html>

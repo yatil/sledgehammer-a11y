@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+      function changeTitle() {
+        const titles = ["New Page Title", "Page Title 2", "Another Page Title", "I can’t think of any more page titles"];
+        let h1 = document.createElement("h1");
+        h1.innerText = titles[Math.floor(Math.random() * titles.length)];
+        document.querySelector("h1").remove();
+        document.querySelector("main").insertBefore(h1, document.querySelector("main>:first-child"));
+      }
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <h1>Page Title</h1>
+      <button onClick="changeTitle()">Change Title</button>
+    </main>
+    <footer id="secondary">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione hic, aperiam rem minima voluptatem porro aliquid ut aspernatur magnam beatae harum earum vel eum, natus eos sed odit reiciendis? Rerum.
+    </footer>
+    <script>
+      function setPageTitle(targetSelector = "h1") {
+
+        document.querySelector("head title").innerText = document.querySelector(targetSelector).innerText;
+
+        // Select the node that will be observed for mutations
+        const targetNode = document.querySelector("body");
+
+        // Options for the observer (which mutations to observe)
+        const config = {
+          attributes: true,
+          childList: true,
+          subtree: true
+        };
+
+        // Callback function to execute when mutations are observed
+        const callback = (mutationList, observer) => {
+          for (const mutation of mutationList) {
+            document.querySelector("head title").innerText = document.querySelector(targetSelector).innerText;
+          }
+        };
+
+        // Create an observer instance linked to the callback function
+        const observer = new MutationObserver(callback);
+
+        // Start observing the target node for configured mutations
+        observer.observe(targetNode, config);
+      }
+      setPageTitle();
+    </script>
+  </body>
+
+</html>

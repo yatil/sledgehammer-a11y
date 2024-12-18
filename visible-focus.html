@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visible focus</title>
+    <style>
+      p {
+        padding: 2em;
+      }
+
+      a {
+        color: currentcolor;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Visible Keyboard Focus</h1>
+      <button>A button</button>
+      <p>Lorem <a href="#">ipsum</a> dolor sit amet consectetur, adipisicing elit. Ratione hic, aperiam rem minima voluptatem porro aliquid ut <a href="#">aspernatur</a> magnam beatae harum earum vel eum, natus eos sed odit reiciendis? Rerum.</p>
+      <p style="color: #fff; background-color: #000;">Lorem <a href="#">ipsum</a> dolor sit amet consectetur, adipisicing elit. Ratione hic, aperiam rem minima voluptatem porro aliquid ut <a href="#">aspernatur</a> magnam beatae harum earum vel eum, natus eos sed odit reiciendis? Rerum.</p>
+      </footer>
+      <script>
+        function forceVisibleFocus() {
+          if (!document.querySelector("[data-sledge-hammer-a11y='visibleFocus']")) {
+            document.querySelector("head").insertAdjacentHTML("beforeend", "<style data-sledge-hammer-a11y='visibleFocus'>:focus-visible { outline: 3px solid black; box-shadow: 0 0 0 6px white;}</style>");
+          }
+        }
+        forceVisibleFocus();
+      </script>
+  </body>
+
+</html>
