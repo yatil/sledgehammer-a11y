@@ -16,7 +16,7 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione hic, aperiam rem minima voluptatem porro aliquid ut aspernatur magnam beatae harum earum vel eum, natus eos sed odit reiciendis? Rerum.
     </footer>
     <script>
-      function addSkipLink(targetSelector, skipLinkName = "Skip to Content") {
+      function addSkipLink(targetSelector = "main", skipLinkName = "Skip to Content") {
 
         if (!document.querySelector("[data-sledgehammer-a11y='skipLinks']")) {
           document.querySelector("head").insertAdjacentHTML("beforeend", "<style data-sledgehammer-a11y='skipLinks'>.skiplink { display: block; color: #fff; background-color: #000; border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }.skiplink:active,.skiplink:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; white-space: inherit; width: auto; }</style>");
@@ -36,7 +36,7 @@
         skipLink.innerText = skipLinkName;
         document.querySelector("body").insertBefore(skipLink, document.querySelector("body>:not(.skiplink)"));
       }
-      addSkipLink("main");
+      addSkipLink();
       addSkipLink("footer", "To Secondary Content");
     </script>
   </body>
