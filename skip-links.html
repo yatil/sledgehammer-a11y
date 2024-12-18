@@ -18,8 +18,8 @@
     <script>
       function addSkipLink(targetSelector, skipLinkName = "Skip to Content") {
 
-        if (!document.querySelector("[data-sledge-hammer-a11y='skipLinks']")) {
-          document.querySelector("head").insertAdjacentHTML("beforeend", "<style data-sledge-hammer-a11y='skipLinks'>.skiplink { display: block; color: #fff; background-color: #000; border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }.skiplink:active,.skiplink:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; white-space: inherit; width: auto; }</style>");
+        if (!document.querySelector("[data-sledgehammer-a11y='skipLinks']")) {
+          document.querySelector("head").insertAdjacentHTML("beforeend", "<style data-sledgehammer-a11y='skipLinks'>.skiplink { display: block; color: #fff; background-color: #000; border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }.skiplink:active,.skiplink:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; white-space: inherit; width: auto; }</style>");
         }
 
         let linkTarget = document.querySelector(targetSelector);
