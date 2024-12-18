@@ -107,3 +107,7 @@ forceVisibleFocus();
 ### Source
 
 [Sara Soueidan’s Universal focus indicator.](https://www.sarasoueidan.com/blog/focus-indicators/#a-%E2%80%98universal%E2%80%99-focus-indicator)
+
+---
+
+This work started as part of my work for [Axess Lab](https://axesslab.com).
