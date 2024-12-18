@@ -27,7 +27,7 @@
       <script>
         function forceVisibleFocus() {
           if (!document.querySelector("[data-sledgehammer-a11y='visibleFocus']")) {
-            document.querySelector("head").insertAdjacentHTML("beforeend", "<style data-sledgehammer-a11y='visibleFocus'>:focus-visible { outline: 3px solid black; box-shadow: 0 0 0 6px white;}</style>");
+            document.querySelector("head").insertAdjacentHTML("beforeend", "<style data-sledgehammer-a11y='visibleFocus'>:focus-visible { outline: 3px solid black !important; box-shadow: 0 0 0 6px white !important;}</style>");
           }
         }
         forceVisibleFocus();
